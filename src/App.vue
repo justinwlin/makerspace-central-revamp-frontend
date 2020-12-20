@@ -1,31 +1,36 @@
 <template>
   <div id="app">
-    <span id="appContainer">
-      <div>
-        <h1 id="version">Version Number: 0.0.0</h1>
-      </div>
-      <button>Add User</button>
-      <button>Toggle Barcode / NetID</button>
-      <h1>Search Bar</h1>
-      <button>SEARCH USER</button>
-      <h1>NAME</h1>
-      <h1>NET ID</h1>
-      <h1>Barcode</h1>
-      <button>EDIT BARCODE BUTTON</button>
-      <button>EDIT</button><button>SAVE</button>
-      <h1>CONTAINER OF LISTS</h1>
-    </span>
+    <img src="./assets/logo.png">
+    <div>
+      <p>
+        If Element Plus is successfully added to this project, you'll see an
+        <code v-text="'<el-button>'"></code>
+        below
+      </p>
+      <el-button type="primary">el-button</el-button>
+    </div>
+    <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
 </template>
+
 <script>
-export default {};
-</script>
-<style scoped>
-#appContainer {
-  display: flex;
-  width: 75%;
-  margin: auto;
-  flex-direction: column;
-  align-items: center;
+import HelloWorld from './components/HelloWorld.vue'
+
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  }
 }
-</style>>
+</script>
+
+<style>
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>

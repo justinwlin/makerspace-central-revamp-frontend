@@ -1,15 +1,9 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import ElementUI from 'element-ui';
-import 'element-ui/lib/theme-chalk/index.css';
-import locale from 'element-ui/lib/locale/lang/en'
+import router from './router';
+import store from './store';
+import { createApp } from 'vue';
+import App from './App.vue';
+import installElementPlus from './plugins/element.js';
 
-Vue.use(ElementUI, { locale })
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+const app = createApp(App).use(store).use(router);
+installElementPlus(app);
+app.mount('#app');
