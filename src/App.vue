@@ -1,36 +1,55 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <div>
-      <p>
-        If Element Plus is successfully added to this project, you'll see an
-        <code v-text="'<el-button>'"></code>
-        below
-      </p>
-      <el-button type="primary">el-button</el-button>
+    <!-- NAVIGATION -->
+    <div class="navBar center">
+      <el-button type="primary">Home</el-button>
+      <el-button type="success">Add User</el-button>
     </div>
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+    <!-- SEARCH BOX -->
+    <el-row type="flex" justify="center">
+      <el-col :span="8">
+        <el-input placeholder="Please input" v-model="input"></el-input>
+      </el-col>
+      <el-button type="primary" plain>Search By NetID</el-button>
+    </el-row>
+    <!-- RESULTS OF SEARCH -->
+    <el-row type="flex" justify="center">
+      <el-col :span="12">
+        <h2>User:</h2>
+      </el-col>
+    </el-row>
+    <el-row type="flex" justify="center">
+      <el-col :span="12">
+        <div>
+          <h4>Edit Barcode</h4>
+          <el-input placeholder="Please input" v-model="input"></el-input>
+        </div>
+        <div>
+          <h4>Edit NetID</h4>
+          <el-input placeholder="Please input" v-model="input"></el-input>
+        </div>
+      </el-col>
+    </el-row>
+    <!-- GRID -->
+    <div class="center">
+      <el-button type="info" plain>EDIT</el-button>
+      <el-button type="success" plain>SAVE</el-button>
+    </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+  name: "App",
+  components: {},
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.center {
+  display: flex;
+  justify-content: center;
+  margin: 1rem;
 }
 </style>
