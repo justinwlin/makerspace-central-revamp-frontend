@@ -6,7 +6,7 @@
         <h4>Searching by: {{ toggleButtonText }}</h4>
         <h4>Please only use lower-case letters for net-id</h4>
         <el-input
-          placeholder="Please input"
+          :placeholder="toggleButtonText"
           v-model="inputTextNetIDBarCode"
         ></el-input>
       </el-col>
@@ -198,6 +198,7 @@ export default {
       this.searchResult[1][this.getIndexOfBarcode()] = this.editBarcodeVal;
       console.log(this.searchResult);
       this.beenSaved = "LOADING";
+      this.allowedToEdit = false;
       //Make async request
       await axios.post(this.BASEURL + "/updateRow", {
         netid: netId,
