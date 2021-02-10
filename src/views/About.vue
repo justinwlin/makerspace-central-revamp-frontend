@@ -37,7 +37,7 @@
 import axios from "axios";
 export default {
   name: "About",
-  props: ["BASEURL"],
+  inject: ["BASEURL"],
   data() {
     return {
       first: "",

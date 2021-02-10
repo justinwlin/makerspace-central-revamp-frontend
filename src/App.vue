@@ -2,27 +2,32 @@
   <div id="app">
     <!-- NAVIGATION -->
     <div class="navBar center">
-      <el-button type="primary" v-on:click="page = true">Home</el-button>
-      <el-button type="success" v-on:click="page = false">Add User</el-button>
+      <router-link to="/"><el-button type="primary" v-on:click="page = true">Home</el-button></router-link>
+      <router-link to="/about"><el-button type="success" v-on:click="page = false">Add User</el-button></router-link>
     </div>
     <!-- PAGES -->
-    <Home v-if="page" :BASEURL="BASE_URL"></Home>
-    <About :BASEURL="BASE_URL" v-else></About>
+    <router-view></router-view>
+    
+
   </div>
 </template>
 
 <script>
-import Home from "./views/Home";
-import About from "./views/About";
+
 export default {
   name: "App",
-  components: { Home, About },
   data() {
     return {
       page: true,
       BASE_URL: "https://mkrspcbackendv2.herokuapp.com",
     };
   },
+
+  provide(){
+    return{
+      BASEURL:this.BASE_URL
+    }
+  }
 };
 </script>
 

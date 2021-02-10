@@ -71,7 +71,7 @@ import ResultGrid from "../components/resultGrid.vue";
 export default {
   name: "Home",
   components: { ResultGrid },
-  props: ["BASEURL"],
+  inject: ["BASEURL"],
   data() {
     return {
       searchButtonState: true, //true is search, false is loading
