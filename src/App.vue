@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <!-- NAVIGATION -->
-    <div class="navBar center">
-      <router-link to="/"><el-button type="primary" v-on:click="page = true">Home</el-button></router-link>
+    <!-- NAVIGATION --> 
+    <div class="navBar center" v-if="valid">
+      <router-link to="/home"><el-button type="primary" v-on:click="page = true">Home</el-button></router-link>
       <router-link to="/about"><el-button type="success" v-on:click="page = false">Add User</el-button></router-link>
     </div>
+    
     <!-- PAGES -->
     <router-view></router-view>
     
@@ -13,13 +14,15 @@
 </template>
 
 <script>
-
 export default {
-  name: "App",
+  name: "App", 
   data() {
     return {
       page: true,
       BASE_URL: "https://mkrspcbackendv2.herokuapp.com",
+
+
+
     };
   },
 
@@ -27,6 +30,13 @@ export default {
     return{
       BASEURL:this.BASE_URL
     }
+  },
+
+  computed:{
+    valid(){
+      return this.$store.getters.loggedIn
+    }
+    
   }
 };
 </script>
