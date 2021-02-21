@@ -20,9 +20,6 @@ export default {
     return {
       page: true,
       BASE_URL: "https://mkrspcbackendv2.herokuapp.com",
-
-
-
     };
   },
 
@@ -36,7 +33,6 @@ export default {
     valid(){
       return this.$store.getters.loggedIn
     }
-    
   }
 };
 </script>

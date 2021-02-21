@@ -94,6 +94,7 @@ export default {
       return !this.createUserState ? "Create" : "Sending";
     },
   },
+
 };
 </script>
 <style scoped>
