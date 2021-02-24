@@ -20,7 +20,7 @@ const routes = [
         
         next()
       }else{
-        next(false)
+        next("/")
       }
     }
   },
@@ -35,7 +35,7 @@ const routes = [
         next()
       }else{
         console.log('here1')
-        next(false)
+        next("/")
       }
     }
   }
