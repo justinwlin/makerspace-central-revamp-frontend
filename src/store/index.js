@@ -8,8 +8,10 @@ export default createStore({
   },
   mutations: {
     loginPage(state){
+        var pass = process.env.VUE_APP_PASSWORD;
+        var user = process.env.VUE_APP_USER_NAME;
         
-        if(state.username == "admin" && state.password == "admin"){
+        if(state.username == user && state.password == pass){
           
           state.loginUserState = true;
           router.push("/home")
