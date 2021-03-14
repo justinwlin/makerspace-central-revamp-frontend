@@ -1,17 +1,18 @@
 import { createStore } from 'vuex'
 import router from '../router/index.js'
+
 export default createStore({
   state: {
     username: "",
     password: "",
-    loginUserState:false
+    loginUserState:false,
+    button:false,
   },
   mutations: {
     loginPage(state){
-        var pass = process.env.VUE_APP_PASSWORD;
-        var user = process.env.VUE_APP_USER_NAME;
-        
-        if(state.username == user && state.password == pass){
+       
+      
+        if(state.username == "admin" && state.password == "admin"){
           
           state.loginUserState = true;
           router.push("/home")
@@ -32,6 +33,8 @@ export default createStore({
   actions: {
     login(context){
       context.commit("loginPage")
+
+      
     }
   },
   getters:{
