@@ -31,6 +31,10 @@
         createUserText
       }}</el-button>
     </div>
+    <div>
+      <el-button type="success" plain v-on:click="login()">Login</el-button>
+      <el-button type="danger" plain v-on:click ="submitUser()">Submit User</el-button>
+    </div>
   </div>
 </template>
 <script>
