@@ -1,5 +1,6 @@
 import { createStore } from 'vuex'
 import router from '../router/index.js'
+import axios from 'axios'
 
 export default createStore({
   state: {
@@ -7,6 +8,7 @@ export default createStore({
     password: "",
     loginUserState:false,
     button:false,
+    URL:"https://makerspace-central.herokuapp.com"
   },
   mutations: {
     loginPage(state){
@@ -35,7 +37,28 @@ export default createStore({
       context.commit("loginPage")
 
       
+    },
+
+    async loggedIn(context){
+      let user = context.state
+      
+    
+      await axios.post("http://localhost:3000/login",{"enteredPass":user.password, "enteredUser":user.username}).then((res)=>{
+        user.loginUserState = res.data.result
+       
+        
+      }).catch((err)=>{
+        console.log(err,"here")
+      })
+
+      if (user.loginUserState){
+        router.push("/home")
+      }else{
+        alert("Incorrect username/password");
+      }
+
     }
+  
   },
   getters:{
     user(state){

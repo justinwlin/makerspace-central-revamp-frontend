@@ -17,7 +17,7 @@
         </el-col>
       </el-row>
       <div class="center">
-        <el-button type="primary" v-on:click="login()">Login{{
+        <el-button type="primary" v-on:click="loggedIn()">Login{{
           createUserText
         }}</el-button>
       </div>
@@ -52,7 +52,7 @@ export default {
     }
   },
   methods:{
-    ...mapActions(['login'])
+    ...mapActions(['loggedIn'])
 
 
   }

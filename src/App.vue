@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       page: true,
-      BASE_URL: "https://mkrspcbackendv2.herokuapp.com",
+      BASE_URL: "https://makerspace-central.herokuapp.com",
       
     };
   },
@@ -36,8 +36,8 @@ export default {
   async mounted(){
     let self = this.$store.state
       setInterval(async function(){
-        await axios.get("https://mkrspcbackendv2.herokuapp.com").then((result)=>{
-          console.log(result)
+        await axios.get("https://makerspace-central.herokuapp.com").then(()=>{
+          
           self.button = true
         }).catch((err)=>{
           console.log(err)
