@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       page: true,
-      BASE_URL: "https://makerspace-central.herokuapp.com",
+      BASE_URL: "https://makerspace-central.herokuapp.com"
       
     };
   },

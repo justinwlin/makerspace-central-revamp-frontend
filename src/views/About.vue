@@ -20,11 +20,6 @@
         <el-input placeholder="NetID" v-model="netid"></el-input>
       </el-col>
     </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="12">
-        <el-input placeholder="NNumber" v-model="nnum"></el-input>
-      </el-col>
-    </el-row>
     <div class="center">
       <el-button type="danger" plain v-on:click="clear()">Clear</el-button>
       <el-button type="success" plain v-on:click="submitUser()">{{
@@ -44,7 +39,6 @@ export default {
       last: "",
       barcode: "",
       netid: "",
-      nnum: "",
       createUserState: false,
     };
   },
@@ -57,8 +51,7 @@ export default {
         !this.first ||
         !this.last ||
         !this.barcode ||
-        !this.netid ||
-        !this.nnum
+        !this.netid 
       ) {
         alert("fill in all the boxes");
         return;
@@ -71,12 +64,12 @@ export default {
           LastName: this.last,
           Barcode: this.barcode,
           NetID: this.netid,
-          NNumber: this.nnum,
         })
         .then(() => {
           this.clear();
         })
-        .catch(() => {
+        .catch((err) => {
+          console.log(err)
           alert("error submitting form");
         });
       this.createUserState = false;
@@ -85,8 +78,7 @@ export default {
       this.first = "";
       this.last = "";
       this.barcode = "";
-      this.netid = "";
-      this.nnum = "";
+      this.netid = ""
     },
   },
   computed: {
