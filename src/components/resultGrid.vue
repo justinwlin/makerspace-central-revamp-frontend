@@ -40,8 +40,8 @@ export default {
 <style scoped>
 #container {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-evenly;
-  overflow-x: scroll;
   margin: 2rem;
   border: 1px solid grey;
 }
