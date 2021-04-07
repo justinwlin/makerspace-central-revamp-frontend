@@ -8,11 +8,12 @@
         <el-input
           :placeholder="toggleButtonText"
           v-model="inputTextNetIDBarCode"
+          :type="numberOrText"
         ></el-input>
       </el-col>
     </el-row>
     <div class="center">
-      <el-button type="success" v-on:click="searchUser()">
+      <el-button type="success" v-on:click="searchUser()" v-if="toggleButtonState">
         {{ searchButtonText }}</el-button
       >
       <el-button type="info" plain v-on:click="toggleNetBarcode">
@@ -109,6 +110,7 @@ export default {
           }
           if (this.searchResult.length < 2) {
             alert("no user found");
+            return
           }
           //UPDATE BARCODE
           let idxBarcode = this.getIndexOfBarcode();
@@ -153,8 +155,7 @@ export default {
         });
     },
     searchByBarCode() {
-      let lengthString = this.inputTextNetIDBarCode.length - 1;
-      let derived = this.inputTextNetIDBarCode.slice(1, lengthString);
+      let derived = this.inputTextNetIDBarCode;
       return axios
         .post(this.BASEURL + "/getBarcode", {
           barcode: derived,
@@ -214,6 +215,9 @@ export default {
     },
   },
   computed: {
+    numberOrText(){
+      return this.toggleButtonState ? "number" : "text"
+    },
     searchButtonText() {
       return this.searchButtonState ? "Search" : "Loading";
     },

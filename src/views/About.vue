@@ -12,7 +12,7 @@
     </el-row>
     <el-row type="flex" justify="center">
       <el-col :span="12">
-        <el-input placeholder="Barcode" v-model="barcode"></el-input>
+        <el-input placeholder="Barcode" v-model="barcode" type="number"></el-input>
       </el-col>
     </el-row>
     <el-row type="flex" justify="center">
@@ -20,20 +20,11 @@
         <el-input placeholder="NetID" v-model="netid"></el-input>
       </el-col>
     </el-row>
-    <el-row type="flex" justify="center">
-      <el-col :span="12">
-        <el-input placeholder="NNumber" v-model="nnum"></el-input>
-      </el-col>
-    </el-row>
     <div class="center">
       <el-button type="danger" plain v-on:click="clear()">Clear</el-button>
       <el-button type="success" plain v-on:click="submitUser()">{{
         createUserText
       }}</el-button>
-    </div>
-    <div>
-      <el-button type="success" plain v-on:click="login()">Login</el-button>
-      <el-button type="danger" plain v-on:click ="submitUser()">Submit User</el-button>
     </div>
   </div>
 </template>
@@ -61,8 +52,7 @@ export default {
         !this.first ||
         !this.last ||
         !this.barcode ||
-        !this.netid ||
-        !this.nnum
+        !this.netid 
       ) {
         alert("fill in all the boxes");
         return;
@@ -75,7 +65,7 @@ export default {
           LastName: this.last,
           Barcode: this.barcode,
           NetID: this.netid,
-          NNumber: this.nnum,
+          NNumber: "",
         })
         .then(() => {
           this.clear();
